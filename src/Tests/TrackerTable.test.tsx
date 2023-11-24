@@ -19,11 +19,11 @@ test("selection d'un tracker", async () => {
     render(<TrackersTable trackers={db} 
             selectedTracker={result.current.selectedTracker}
             onSelectedTracker={result.current.onSelectedTracker}
-            />);
+            />);      
     expect(screen.getByText(/terminator/i)).toBeInTheDocument();
     expect(screen.getByText(/redux documentation/i)).toBeInTheDocument();
     await user.click(screen.getByText(/terminator/i).parentElement!);
-    expect(result.current.selectedTracker.id).toStrictEqual(IdTerminator);
+    expect(result?.current?.selectedTracker?.id).toStrictEqual(IdTerminator);
     await user.click(screen.getByText(/redux documentation/i).parentElement!);
-    expect(result.current.selectedTracker.id).toStrictEqual(IdDocumentation);
+    expect(result?.current?.selectedTracker?.id).toStrictEqual(IdDocumentation);
 });
